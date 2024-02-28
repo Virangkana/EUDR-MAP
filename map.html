@@ -46,7 +46,7 @@
             zoomControl:true, maxZoom:28, minZoom:1
         }).fitBounds([[-0.7201411430532834,79.41418422736771],[24.59308381997204,129.25132567046933]]);
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<img src="traztru logo.png" alt="traztru" style="width:42px;height:42px;">');
+        map.attributionControl.setPrefix('<a href="https://www.agriac.com" target="_blank">Agriac Global Co.,Ltd.</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
         var measureControl = new L.Control.Measure({

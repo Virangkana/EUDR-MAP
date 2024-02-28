@@ -14,7 +14,7 @@ function validate(){
     var length = document.getElementById("length");
 
     if(password.value.length >= 8){
-        alert("Login Succesfull");
+        alert("Login Succesful");
         window.location.replace("map.html");
         return false;
     }
@@ -26,5 +26,5 @@ function validate(){
 
 
 function lpage(){
-    window.location.replace("Landingpage.html")
+    window.location.replace("map.html")
 }

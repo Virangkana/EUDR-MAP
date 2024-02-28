@@ -42,7 +42,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-0.7201411430532834,79.41418422736771],[24.59308381997204,129.25132567046933]]);
+        }).fitBounds([[6.653060182301298,98.37208234442743],[7.866906249088037,100.70819834957277]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -353,14 +353,6 @@
                         <td>' + (feature.properties['Farm Reference'] !== null ? autolinker.link(feature.properties['Farm Reference'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Farm Location X</th>\
-                        <td>' + (feature.properties['Farm Location X'] !== null ? autolinker.link(feature.properties['Farm Location X'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Farm Location Y</th>\
-                        <td>' + (feature.properties['Farm Location Y'] !== null ? autolinker.link(feature.properties['Farm Location Y'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">Type of Title Deed</th>\
                         <td>' + (feature.properties['Type of Title Deed'] !== null ? autolinker.link(feature.properties['Type of Title Deed'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -426,10 +418,6 @@
                     <tr>\
                         <th scope="row">Farm Reference</th>\
                         <td>' + (feature.properties['Farm Reference'] !== null ? autolinker.link(feature.properties['Farm Reference'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Farm Polygon</th>\
-                        <td>' + (feature.properties['Farm Polygon'] !== null ? autolinker.link(feature.properties['Farm Polygon'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Farm Location X</th>\
@@ -504,31 +492,8 @@
         bounds_group.addLayer(layer_GeolocationTZ2400009_6);
         cluster_GeolocationTZ2400009_6.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/GeolocationTZ2400009_6.png" /> Geolocation  TZ2400009': cluster_GeolocationTZ2400009_6,'<img src="legend/PolygonTZ2400009_5.png" /> Polygon  TZ2400009': layer_PolygonTZ2400009_5,'<img src="legend/NonHuntingAreas_4.png" /> Non Hunting Areas': layer_NonHuntingAreas_4,'<img src="legend/NationalPark_3.png" /> National Park': layer_NationalPark_3,'<img src="legend/WildlifeSanctuary_2.png" /> Wildlife Sanctuary': layer_WildlifeSanctuary_2,"Global forest cover 2020": layer_Globalforestcover2020_1,"google map": layer_googlemap_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/GeolocationTZ2400009_6.png" /> Geolocation-TZ2400009': cluster_GeolocationTZ2400009_6,'<img src="legend/PolygonTZ2400009_5.png" /> Polygon-TZ2400009': layer_PolygonTZ2400009_5,'<img src="legend/NonHuntingAreas_4.png" /> Non Hunting Areas': layer_NonHuntingAreas_4,'<img src="legend/NationalPark_3.png" /> National Park': layer_NationalPark_3,'<img src="legend/WildlifeSanctuary_2.png" /> Wildlife Sanctuary': layer_WildlifeSanctuary_2,"Global forest cover 2020": layer_Globalforestcover2020_1,"google map": layer_googlemap_0,}).addTo(map);
         setBounds();
-        var i = 0;
-        layer_GeolocationTZ2400009_6.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['Farm Reference'] !== null?String('<div style="color: #ffffff; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Farm Reference']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_GeolocationTZ2400009_6'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        resetLabels([layer_GeolocationTZ2400009_6]);
-        map.on("zoomend", function(){
-            resetLabels([layer_GeolocationTZ2400009_6]);
-        });
-        map.on("layeradd", function(){
-            resetLabels([layer_GeolocationTZ2400009_6]);
-        });
-        map.on("layerremove", function(){
-            resetLabels([layer_GeolocationTZ2400009_6]);
-        });
         </script>
     </body>
 </html>

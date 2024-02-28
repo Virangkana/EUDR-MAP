@@ -28,7 +28,13 @@
     <body>
          <!-- Display the map and title with HTML division tags  -->
 
-       
+       <?php
+// ใช้เช็คค่ากัน การพิมพ์ URL ตรงๆโดยไม่ผ่านหน้า login
+session_start();
+if( !isset($_SESSION["name"]) or $_SESSION["name"] == NULL ) {
+header("Location: login.php");
+}
+?>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>

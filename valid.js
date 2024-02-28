@@ -1,10 +1,10 @@
 
 
 function validate(){
-    var password = document.getElementById("pass");
-    var length = document.getElementById("length");
-
-    if(password.value.length >= 8){
+    var user = document.forms["myform"]["uname"].value;
+    var pass = document.forms["myform"]["pass"].value;
+    if (user=="user" && pass=="1234")
+{
         alert("Login Successfully");
         window.location.replace("map.html");
         return false;

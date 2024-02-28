@@ -5,7 +5,7 @@ function validate(){
     var pass = document.forms["myform"]["pass"].value;
     if (user=="user" && pass=="1234")
   {
-    window.open('xxx', '_blank');
+    window.open('map.html', '_blank');
   }
     else
   {

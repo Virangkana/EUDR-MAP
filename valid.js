@@ -5,7 +5,7 @@ function validate(){
     var length = document.getElementById("length");
 
     if(password.value.length >= 8){
-        alert("Login Succesfull");
+        alert("Login Successfully");
         window.location.replace("map.html");
         return false;
     }

@@ -43,7 +43,7 @@
             zoomControl:true, maxZoom:28, minZoom:1
         }).fitBounds([[6.653060182301298,98.37208234442743],[7.866906249088037,100.70819834957277]]);
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<a href="https://www.agriac.com" target="_blank">Agriac Global Co.,Ltd.</a>');
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         var measureControl = new L.Control.Measure({
             position: 'topleft',
@@ -90,11 +90,14 @@
         map.addLayer(layer_Globalforestcover2020_1);
         function pop_WildlifeSanctuary_2(feature, layer) {
             var popupContent = '<table>\
-                   <tr>\
+                    <tr>\
                         <th scope="row">Area</th>\
                         <td>' + (feature.properties['Area'] !== null ? autolinker.link(feature.properties['Area'].toLocaleString()) : '') + '</td>\
                     </tr>\
-                   
+                    <tr>\
+                        <th scope="row">Perimeter</th>\
+                        <td>' + (feature.properties['Perimeter'] !== null ? autolinker.link(feature.properties['Perimeter'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Area__RAI_</th>\
                         <td>' + (feature.properties['Area__RAI_'] !== null ? autolinker.link(feature.properties['Area__RAI_'].toLocaleString()) : '') + '</td>\
@@ -103,18 +106,47 @@
                         <th scope="row">Type</th>\
                         <td>' + (feature.properties['Type'] !== null ? autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
-        
+                    <tr>\
+                        <th scope="row">Name_TH</th>\
+                        <td>' + (feature.properties['Name_TH'] !== null ? autolinker.link(feature.properties['Name_TH'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Name</th>\
                         <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
-                
+                    <tr>\
+                        <th scope="row">ANN_Date</th>\
+                        <td>' + (feature.properties['ANN_Date'] !== null ? autolinker.link(feature.properties['ANN_Date'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Law_Type</th>\
+                        <td>' + (feature.properties['Law_Type'] !== null ? autolinker.link(feature.properties['Law_Type'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ANN_BOOK_I</th>\
+                        <td>' + (feature.properties['ANN_BOOK_I'] !== null ? autolinker.link(feature.properties['ANN_BOOK_I'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ANN_SECTIO</th>\
+                        <td>' + (feature.properties['ANN_SECTIO'] !== null ? autolinker.link(feature.properties['ANN_SECTIO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ANN_AREA_R</th>\
+                        <td>' + (feature.properties['ANN_AREA_R'] !== null ? autolinker.link(feature.properties['ANN_AREA_R'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DNP_CODE</th>\
+                        <td>' + (feature.properties['DNP_CODE'] !== null ? autolinker.link(feature.properties['DNP_CODE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year</th>\
+                        <td>' + (feature.properties['Year'] !== null ? autolinker.link(feature.properties['Year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
-              
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-      function style_WildlifeSanctuary_2_0() {
+        function style_WildlifeSanctuary_2_0() {
             return {
                 pane: 'pane_WildlifeSanctuary_2',
                 opacity: 1,
@@ -144,60 +176,58 @@
         bounds_group.addLayer(layer_WildlifeSanctuary_2);
         map.addLayer(layer_WildlifeSanctuary_2);
         function pop_NationalPark_3(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Area'] !== null ? autolinker.link(feature.properties['Area'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Area</th>\
+                        <td>' + (feature.properties['Area'] !== null ? autolinker.link(feature.properties['Area'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Perimeter'] !== null ? autolinker.link(feature.properties['Perimeter'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Perimeter</th>\
+                        <td>' + (feature.properties['Perimeter'] !== null ? autolinker.link(feature.properties['Perimeter'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Area__RAI_'] !== null ? autolinker.link(feature.properties['Area__RAI_'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Area__RAI_</th>\
+                        <td>' + (feature.properties['Area__RAI_'] !== null ? autolinker.link(feature.properties['Area__RAI_'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Type'] !== null ? autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Type</th>\
+                        <td>' + (feature.properties['Type'] !== null ? autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name_TH'] !== null ? autolinker.link(feature.properties['Name_TH'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name_TH</th>\
+                        <td>' + (feature.properties['Name_TH'] !== null ? autolinker.link(feature.properties['Name_TH'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ANN_Date'] !== null ? autolinker.link(feature.properties['ANN_Date'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ANN_Date</th>\
+                        <td>' + (feature.properties['ANN_Date'] !== null ? autolinker.link(feature.properties['ANN_Date'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Law_Type'] !== null ? autolinker.link(feature.properties['Law_Type'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Law_Type</th>\
+                        <td>' + (feature.properties['Law_Type'] !== null ? autolinker.link(feature.properties['Law_Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ANN_BOOK_I'] !== null ? autolinker.link(feature.properties['ANN_BOOK_I'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ANN_BOOK_I</th>\
+                        <td>' + (feature.properties['ANN_BOOK_I'] !== null ? autolinker.link(feature.properties['ANN_BOOK_I'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ANN_SECTIO'] !== null ? autolinker.link(feature.properties['ANN_SECTIO'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ANN_SECTIO</th>\
+                        <td>' + (feature.properties['ANN_SECTIO'] !== null ? autolinker.link(feature.properties['ANN_SECTIO'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ANN_AREA_R'] !== null ? autolinker.link(feature.properties['ANN_AREA_R'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ANN_AREA_R</th>\
+                        <td>' + (feature.properties['ANN_AREA_R'] !== null ? autolinker.link(feature.properties['ANN_AREA_R'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['DNP_CODE'] !== null ? autolinker.link(feature.properties['DNP_CODE'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">DNP_CODE</th>\
+                        <td>' + (feature.properties['DNP_CODE'] !== null ? autolinker.link(feature.properties['DNP_CODE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Year'] !== null ? autolinker.link(feature.properties['Year'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Year</th>\
+                        <td>' + (feature.properties['Year'] !== null ? autolinker.link(feature.properties['Year'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -214,7 +244,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0, 181, 201, 1)',
+                fillColor: 'rgba(0,181,201,1.0)',
                 interactive: true,
             }
         }
@@ -233,60 +263,58 @@
         bounds_group.addLayer(layer_NationalPark_3);
         map.addLayer(layer_NationalPark_3);
         function pop_NonHuntingAreas_4(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Area'] !== null ? autolinker.link(feature.properties['Area'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Area</th>\
+                        <td>' + (feature.properties['Area'] !== null ? autolinker.link(feature.properties['Area'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Perimeter'] !== null ? autolinker.link(feature.properties['Perimeter'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Perimeter</th>\
+                        <td>' + (feature.properties['Perimeter'] !== null ? autolinker.link(feature.properties['Perimeter'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Area__RAI_'] !== null ? autolinker.link(feature.properties['Area__RAI_'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Area__RAI_</th>\
+                        <td>' + (feature.properties['Area__RAI_'] !== null ? autolinker.link(feature.properties['Area__RAI_'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Type'] !== null ? autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Type</th>\
+                        <td>' + (feature.properties['Type'] !== null ? autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name_TH'] !== null ? autolinker.link(feature.properties['Name_TH'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name_TH</th>\
+                        <td>' + (feature.properties['Name_TH'] !== null ? autolinker.link(feature.properties['Name_TH'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ANN_Date'] !== null ? autolinker.link(feature.properties['ANN_Date'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ANN_Date</th>\
+                        <td>' + (feature.properties['ANN_Date'] !== null ? autolinker.link(feature.properties['ANN_Date'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Law_Type'] !== null ? autolinker.link(feature.properties['Law_Type'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Law_Type</th>\
+                        <td>' + (feature.properties['Law_Type'] !== null ? autolinker.link(feature.properties['Law_Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ANN_BOOK_I'] !== null ? autolinker.link(feature.properties['ANN_BOOK_I'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ANN_BOOK_I</th>\
+                        <td>' + (feature.properties['ANN_BOOK_I'] !== null ? autolinker.link(feature.properties['ANN_BOOK_I'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ANN_SECTIO'] !== null ? autolinker.link(feature.properties['ANN_SECTIO'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ANN_SECTIO</th>\
+                        <td>' + (feature.properties['ANN_SECTIO'] !== null ? autolinker.link(feature.properties['ANN_SECTIO'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ANN_AREA_R'] !== null ? autolinker.link(feature.properties['ANN_AREA_R'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ANN_AREA_R</th>\
+                        <td>' + (feature.properties['ANN_AREA_R'] !== null ? autolinker.link(feature.properties['ANN_AREA_R'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['DNP_CODE'] !== null ? autolinker.link(feature.properties['DNP_CODE'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">DNP_CODE</th>\
+                        <td>' + (feature.properties['DNP_CODE'] !== null ? autolinker.link(feature.properties['DNP_CODE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Year'] !== null ? autolinker.link(feature.properties['Year'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Year</th>\
+                        <td>' + (feature.properties['Year'] !== null ? autolinker.link(feature.properties['Year'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -322,24 +350,10 @@
         bounds_group.addLayer(layer_NonHuntingAreas_4);
         map.addLayer(layer_NonHuntingAreas_4);
         function pop_PolygonTZ2400009_5(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Lot Reference'] !== null ? autolinker.link(feature.properties['Lot Reference'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Lot Reference</th>\
+                        <td>' + (feature.properties['Lot Reference'] !== null ? autolinker.link(feature.properties['Lot Reference'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Farmer Reference</th>\
@@ -350,12 +364,6 @@
                         <td>' + (feature.properties['Farm Reference'] !== null ? autolinker.link(feature.properties['Farm Reference'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Farm Location X'] !== null ? autolinker.link(feature.properties['Farm Location X'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Farm Location Y'] !== null ? autolinker.link(feature.properties['Farm Location Y'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">Type of Title Deed</th>\
                         <td>' + (feature.properties['Type of Title Deed'] !== null ? autolinker.link(feature.properties['Type of Title Deed'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -364,14 +372,16 @@
                         <td>' + (feature.properties['Title Deed No.'] !== null ? autolinker.link(feature.properties['Title Deed No.'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Delivery Quantity (Ton 100% DRC)'] !== null ? autolinker.link(feature.properties['Delivery Quantity (Ton 100% DRC)'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Delivery Quantity (Ton 100% DRC)</th>\
+                        <td>' + (feature.properties['Delivery Quantity (Ton 100% DRC)'] !== null ? autolinker.link(feature.properties['Delivery Quantity (Ton 100% DRC)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Area (HA)</th>\
                         <td>' + (feature.properties['Area (HA)'] !== null ? autolinker.link(feature.properties['Area (HA)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Weight Ticket'] !== null ? autolinker.link(feature.properties['Weight Ticket'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Weight Ticket</th>\
+                        <td>' + (feature.properties['Weight Ticket'] !== null ? autolinker.link(feature.properties['Weight Ticket'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});

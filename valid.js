@@ -24,7 +24,3 @@ function validate(){
 }
 
 
-
-function lpage(){
-    window.location.replace("landingpage.html")
-}

@@ -1,18 +1,19 @@
 
 
 function validate(){
-    var user = document.forms["myform"]["uname"].value;
-    var pass = document.forms["myform"]["pass"].value;
-    if (user=="user" && pass=="1234")
-{
-        alert("Login Successfully");
+    var password = document.getElementById("pass");
+    var length = document.getElementById("length");
+
+    if(password.value.length >= 8){
+        alert("Login Succesfull");
         window.location.replace("map.html");
         return false;
     }
     else{
         alert("Login Failed");
     }
-
 }
+
+
 
 

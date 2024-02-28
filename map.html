@@ -32,7 +32,7 @@
 // ใช้เช็คค่ากัน การพิมพ์ URL ตรงๆโดยไม่ผ่านหน้า login
 session_start();
 if( !isset($_SESSION["name"]) or $_SESSION["name"] == NULL ) {
-header("Location: login.php");
+header("Location: index.html");
 }
 ?>
         <div id="map">

@@ -1,5 +1,18 @@
 <!doctype html>
 <html lang="en">
+    <?php
+session_start();
+
+if($_SESSION['USERNAME']==""){
+
+echo "<br><center><h3><font color=\"#CC0099\"> คุณยังไม่ได้login กรุณาloginเข้าสู่ระบบก่อน</font></h3></center>";
+
+echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"2;URL=index.html\">";
+
+exit();
+
+}
+?>
     <head>
          <title>TRAZTRU</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">

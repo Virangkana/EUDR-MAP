@@ -1,16 +1,17 @@
 
 
 function validate(){
-   var user = document.forms["myform"]["uname"].value;
-    var pass = document.forms["myform"]["pass"].value;
-    if (user=="user" && pass=="1234")
-  {
-    window.open('map.html', '_blank');
-  }
-    else
-  {
-    document.getElementById("msg").innerHTML = "ชื่อผู้ใช้ หรือรหัสผ่านไม่ถูกต้อง";
-  }
+    var password = document.getElementById("pass");
+    var length = document.getElementById("length");
+
+    if(password.value.length >= 8){
+        alert("Login Succesfull");
+        window.location.replace("newpage.html");
+        return false;
+    }
+    else{
+        alert("Login Failed");
+    }
 
 }
 

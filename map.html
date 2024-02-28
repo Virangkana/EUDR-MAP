@@ -28,15 +28,7 @@
     <body>
          <!-- Display the map and title with HTML division tags  -->
 
-       <?php
-// ใช้เช็คค่ากัน การพิมพ์ URL ตรงๆโดยไม่ผ่านหน้า login
-session_start();
-if(!session_is_registered("user_login")){
-echo"กรุณาล๊อกอินก่อน";
-exit;
-หรือจะให้มัน redirect ไปหน้าหลักก็ได้แล้วแต่ <script>window.location="index.html";</script>
-}
-?>
+  
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>

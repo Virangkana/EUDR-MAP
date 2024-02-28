@@ -31,8 +31,10 @@
        <?php
 // ใช้เช็คค่ากัน การพิมพ์ URL ตรงๆโดยไม่ผ่านหน้า login
 session_start();
-if( !isset($_SESSION["name"]) or $_SESSION["name"] == NULL ) {
-header("Location: index.html");
+if(!session_is_registered("user_login")){
+echo"กรุณาล๊อกอินก่อน";
+exit;
+หรือจะให้มัน redirect ไปหน้าหลักก็ได้แล้วแต่ <script>window.location="index.html";</script>
 }
 ?>
         <div id="map">

@@ -26,5 +26,5 @@ function validate(){
 
 
 function lpage(){
-    window.location.replace("map.html")
+    window.location.replace("landingpage.html")
 }
